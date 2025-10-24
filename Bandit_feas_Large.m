@@ -1,18 +1,4 @@
 %% main
-% Define parameters
-% mini case
-N = 4;
-M = 2;  % number of members
-L_vec = [1.5,1.2]; % capacity of each member
-f_bar = [0.4,0.6; 0.6,0.5; 0.4,0.6; 0.6,0.7];      % f in [0, 1]
-C_l = 1;
-C_u = 6;
-c_bar = ones(N, M) * 2.0;
-c_bar(1:2,:) = 1.5;
-% destined q
-q = [0.35,0.3; 0.3,0.35; 0.3,0.25; 0.25,0.35];
-r_bar = q .* c_bar;
-
 
 % large case
 % filename = 'ori_data1.xlsx';
@@ -39,8 +25,6 @@ p_f = zeros(TT, T);  % penalty for f
 r_sub = zeros(TT, T);  % sub-optimal regret 
 % Run simulations
 for s = 1:TT
-    s
-%     fprintf('%d',s);
     par = initialize(N,M, L_vec, C_l, C_u, T);
     instance = generate(par, T, c_bar, r_bar,f_bar);
     [reward_opt,cumulative_rewards,cumulative_penalties_f,feedback] = simulate(par, instance, T,alpha,f_bar);
@@ -49,54 +33,12 @@ for s = 1:TT
     p_f(s, :) = cumulative_penalties_f;
     q_0 = r_bar ./ c_bar;
 
-%     r0 = reward_opt-cumulative_rewards;
-%     r_sub = reward_opt/(1+alpha)-cumulative_rewards;
-%     p_f = cumulative_penalties_f;
-%     out_filename = sprintf('Te7_%d.mat',s);
-%     save(out_filename, 'r0','r_sub','p_f');
-%     figure
-%     plot(r0(s, :))
-%     figure
-%     plot(cumulative_penalties_f)
 end
 
 % Save data
-save('alpha_1_small_1e6.mat');
+save('alpha_1_large_1e6.mat');
 
 
-%% plot
-% load('multi_approx_small_50000.mat');
-
-% Compute mean and standard deviation for Algorithm_Proposed
-% r0_mean = mean(r0, 1);
-% r0_std = std(r0, 0, 1); 
-% 
-% r1_mean = mean(r_sub, 1);
-% r1_std = std(r_sub, 0, 1); 
-% 
-% 
-% % Plot parameters
-% num_erb = 10;
-% cs = 6;
-% fs = 12;
-% T_vals = 1:T; % X-axis values
-% transparent = 0.1;  %transparency of errorbar
-% 
-% % Plot regret for Proposed Algorithm
-% figure;
-% % shadedErrorBar(1:T,r_sub,{@mean,@std}); 
-% % hold on 
-% shadedErrorBar(1:T,r0,{@mean,@std}); 
-% 
-% %shadedErrorBar(x,2*y+20,{@mean,@std},'lineprops',{'-go','MarkerFaceColor','g'});
-% 
-% % h = errorbar(T_vals, r0_mean, r0_std, 'b', 'CapSize', cs, 'DisplayName', 'Proposed');
-% xlabel('Round', 'FontSize', fs);
-% ylabel('Regret', 'FontSize', fs);
-% legend('FontSize', fs);
-% title('Regret Analysis for Proposed Algorithm', 'FontSize', fs);
-% grid on;
-% 
 
 
 
