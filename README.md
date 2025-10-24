@@ -1,7 +1,7 @@
 # Heterogeneous-Task-Assignment-with-Uncertain-Execution-Times-and-Preferences
 
-This is the supplementary material of paper: Heterogeneous Task-Assignment with Uncertain Execution Times and Preferences
-We have submitted the short version of paper to LCSS and CDC 2025.[Extended Version](extended_ver_Task_assignment.pdf) 
+This is the supplementary material of paper: Heterogeneous Multi-Agent Task-Assignment with Uncertain Execution Times and Preferences\n
+:\n
 
 Files:\
 extended_ver_Task_assignment.pdf: the extended version to the paper we submitted to LCSS and CDC, given the length limitation, we leave all the proofs of the theorems in the appendix of this extended version.\
