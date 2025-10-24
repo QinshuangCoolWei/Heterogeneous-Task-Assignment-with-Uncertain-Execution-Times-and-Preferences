@@ -1,16 +1,16 @@
 %% main
 
 % large case
-% filename = 'ori_data1.xlsx';
-% N = 20; % # of tasks
-% M = 5;  % # of members
-% L_vec = readmatrix(filename,'Sheet','L_vec'); % capacity of each member
-% L = min(N,sum(L_vec));
-% f_bar = readmatrix(filename,'Sheet','f_bar');   % resource needed
-% C_l = 3;
-% C_u = 10;
-% c_bar = readmatrix(filename,'Sheet','c_bar');
-% r_bar = readmatrix(filename,'Sheet','r_bar');
+filename = 'ori_data1.xlsx';
+N = 20; % # of tasks
+M = 5;  % # of members
+L_vec = readmatrix(filename,'Sheet','L_vec'); % capacity of each member
+L = min(N,sum(L_vec));
+f_bar = readmatrix(filename,'Sheet','f_bar');   % resource needed
+C_l = 3;
+C_u = 10;
+c_bar = readmatrix(filename,'Sheet','c_bar');
+r_bar = readmatrix(filename,'Sheet','r_bar');
 
 
 alpha = 1; % approximation parameter (0: exact, >0: approximation gap)
