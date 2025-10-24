@@ -14,7 +14,6 @@ q = [0.35,0.3; 0.3,0.35; 0.3,0.25; 0.25,0.35];
 r_bar = q .* c_bar;
 
 
-% large case
 
 alpha = 0; % approximation parameter (0: exact, >0: approximation gap)
 
@@ -46,38 +45,6 @@ end
 % save('multi_approx_small_50000.mat');
 
 
-%% plot
-% load('multi_approx_small_50000.mat');
-
-% Compute mean and standard deviation for Algorithm_Proposed
-r0_mean = mean(r0, 1);
-r0_std = std(r0, 0, 1); 
-
-r1_mean = mean(r_sub, 1);
-r1_std = std(r_sub, 0, 1); 
-
-
-% Plot parameters
-num_erb = 10;
-cs = 6;
-fs = 12;
-T_vals = 1:T; % X-axis values
-transparent = 0.1;  %transparency of errorbar
-
-% Plot regret for Proposed Algorithm
-figure;
-% shadedErrorBar(1:T,r_sub,{@mean,@std}); 
-% hold on 
-shadedErrorBar(1:T,r0,{@mean,@std}); 
-
-%shadedErrorBar(x,2*y+20,{@mean,@std},'lineprops',{'-go','MarkerFaceColor','g'});
-
-% h = errorbar(T_vals, r0_mean, r0_std, 'b', 'CapSize', cs, 'DisplayName', 'Proposed');
-xlabel('Round', 'FontSize', fs);
-ylabel('Regret', 'FontSize', fs);
-legend('FontSize', fs);
-title('Regret Analysis for Proposed Algorithm', 'FontSize', fs);
-grid on;
 
 
 
